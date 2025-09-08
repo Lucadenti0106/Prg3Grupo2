@@ -3,6 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar.js";
 import Footer from "../../Components/Footer/Footer.js";
 import TopRated from "../../Components/TopRated/TopRated.js";
 import Searchbar from "../../Components/SearchBar/Searchbar.js";
+import EnCartelera from "../../Components/EnCartelera/EnCartelera.js";
 
 function Home(){
     return(
@@ -13,6 +14,7 @@ function Home(){
 
 
             <TopRated />
+            <EnCartelera/>
 
             
 
