@@ -17,9 +17,7 @@ function Home(){
             
 
             <Footer />
-        </React.Fragment>
-
-        
+        </React.Fragment>  
     )
 }
 

@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
 
 class Cards extends Component {
     constructor(props) {
@@ -10,10 +9,9 @@ class Cards extends Component {
     render() {
 
         return (
-            <article className="info">
-                <h3 className="tituloProd">{this.props.peliculas.title}</h3>
-                <img className="foto" src={'https://image.tmdb.org/t/p/w342' + this.props.peliculas.poster_path} alt="foto" />
-                
+            <article className="card">
+                <h4 className="nombrePeli">{this.props.peliculas.title}</h4>
+                <img className="portada" src={"https://image.tmdb.org/t/p/w342" + this.props.peliculas.poster_path} />
           </article>
         );
     }

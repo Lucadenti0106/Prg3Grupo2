@@ -16,11 +16,12 @@ class PeliculasTopRated extends Component {
     componentDidMount() {
         fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=" + apikey)
             .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    peliculas: data.results.slice(0, 5)
-                });
-            })
+                .then(data => {
+                    console.log(data);
+                    this.setState({
+                        peliculas: data.results.slice(0, 5)
+                    });
+                })
             .catch(error => console.log(error));
     }
 
