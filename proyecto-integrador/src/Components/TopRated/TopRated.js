@@ -18,7 +18,7 @@ class PeliculasTopRated extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    peliculas: data.results
+                    peliculas: data.results.slice(0, 5)
                 });
             })
             .catch(error => console.log(error));
