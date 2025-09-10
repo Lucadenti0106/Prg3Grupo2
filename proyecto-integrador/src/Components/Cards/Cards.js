@@ -10,9 +10,14 @@ class Cards extends Component {
 
         return (
             <article className="card">
-                <h4 className="nombrePeli">{this.props.peliculas.title}</h4>
-                <img className="portada" src={"https://image.tmdb.org/t/p/w342" + this.props.peliculas.poster_path} />
-          </article>
+                <div className = "card-row">
+                    
+                    <h4 className="nombrepeli">{this.props.peliculas.title}</h4>
+                    <div className="puntaje">{this.props.peliculas.vote_average}</div>
+                    <img className="portada" src={"https://image.tmdb.org/t/p/w342" + this.props.peliculas.poster_path} />
+      
+                </div>
+            </article>
         );
     }
 }

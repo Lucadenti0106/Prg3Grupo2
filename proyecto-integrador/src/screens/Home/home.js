@@ -8,9 +8,12 @@ import EnCartelera from "../../Components/EnCartelera/EnCartelera.js";
 function Home(){
     return(
         <React.Fragment>
-            <h1>Udesa Movies</h1>
-            <Navbar/>
-            <Searchbar/>
+             
+                <h1>Udesa Movies</h1>
+                <Navbar/>  
+            
+            
+            
 
 
             <TopRated />

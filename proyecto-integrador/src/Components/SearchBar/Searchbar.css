@@ -1,0 +1,44 @@
+.search-form{
+  position: absolute;           
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form-control{
+  width: 280px;
+  height: 36px;
+  padding: 0 42px 0 14px;       
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: #E3E6EB;
+}
+.form-control::placeholder{ 
+    color: #A7B0BA; 
+}
+.form-control:focus{
+  outline: none;
+  border-color: rgba(64,188,244,0.65);
+  box-shadow: 0 0 0 3px rgba(64,188,244,0.25);
+}
+
+
+.btn-primary{
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: rgba(255,255,255,0.85);
+  font-size: 0;                 
+  
+}
+.btn-primary::before{
+  content: "🔍";                
+  font-size: 16px;
+  line-height: 30px;
+}

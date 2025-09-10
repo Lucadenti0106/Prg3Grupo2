@@ -1,6 +1,7 @@
 import React from "react";
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import Searchbar from "../SearchBar/Searchbar";
 
 function Navbar(props) {
     return (
@@ -20,7 +21,11 @@ function Navbar(props) {
                     <Link className="nav-link" to="/favoritas">Favoritas</Link>
                 </li>
 
+
             </ul>
+            <div>
+                <Searchbar/>
+            </div>
             
 
         </nav>
