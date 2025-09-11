@@ -14,7 +14,7 @@ class Cards extends Component {
                     
                     <h4 className="nombrepeli">{this.props.peliculas.title}</h4>
                     <div className="puntaje">{this.props.peliculas.vote_average}</div>
-                    <img className="portada" src={"https://image.tmdb.org/t/p/w342" + this.props.peliculas.poster_path} />
+                    <img className="portada" src={"https://image.tmdb.org/t/p/w342" + this.props.peliculas.poster_path} alt="pelicula"/>
       
                 </div>
             </article>

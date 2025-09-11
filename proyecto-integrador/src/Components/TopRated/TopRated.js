@@ -28,6 +28,7 @@ class PeliculasTopRated extends Component {
     render() {
         return (
             <section >
+                <h2>Top rated</h2>
                 {this.state.peliculas.map((pelicula, i) => (
                     <Cards key={i} peliculas={pelicula} />
                 ))}

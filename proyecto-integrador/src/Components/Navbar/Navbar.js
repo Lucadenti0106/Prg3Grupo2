@@ -1,7 +1,7 @@
 import React from "react";
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import Searchbar from "../SearchBar/Searchbar";
+import Searchbar from "../Searchbar/Searchbar";
 
 function Navbar(props) {
     return (
@@ -12,7 +12,7 @@ function Navbar(props) {
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/movies">Películas</Link>
+                    <Link className="nav-link" to="/peliculas">Películas</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/series">Series</Link>
@@ -23,9 +23,6 @@ function Navbar(props) {
 
 
             </ul>
-            <div>
-                <Searchbar/>
-            </div>
             
 
         </nav>

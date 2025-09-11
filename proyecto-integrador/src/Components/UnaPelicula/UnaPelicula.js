@@ -1,24 +1,25 @@
 import React, { Component } from "react";
-
 import Cards from "../Cards/Cards.js";
 
 
 let apikey = "8d0e3b2d44b27bb5f4c13aad68207667";
 
-class EnCartelera extends Component {
+class UnaPelicula extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            peliculas: [] 
+            pelicula: null 
         };
     }
 
     componentDidMount() {
-        fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=" + apikey)
+        const id = Number(this.props.match.params.id);
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=` + apikey)
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    peliculas: data.results
+
+                    pelicula: data 
                 });
             })
             .catch(error => console.log(error));
@@ -27,13 +28,12 @@ class EnCartelera extends Component {
     render() {
         return (
             <section>
-                                <h2>Now Playing</h2>
-                {this.state.peliculas.map((pelicula, i) => (
-                    <Cards key={i} peliculas={pelicula} />
+                {this.state.pelicula.map((p, i) => (
+                    <Cards key={i} pelicula={p} />
                 ))}
             </section>
         );
     }
 }
 
-export default EnCartelera;
+export default UnaPelicula;

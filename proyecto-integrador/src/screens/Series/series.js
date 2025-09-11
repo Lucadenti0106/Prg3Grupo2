@@ -2,18 +2,19 @@ import React from "react";
 import Navbar from "../../Components/Navbar/Navbar.js";
 import Footer from "../../Components/Footer/Footer.js";
 
-function Series(){
-    return(
+function Series() {
+
+
+
+    return (
         <React.Fragment>
             <h1>Udesa Movies</h1>
-            <Navbar name="Walter White"/>
-
-            
-
+            <Navbar />
+            <TopRated />
             <Footer />
         </React.Fragment>
 
-        
+
     )
 }
 
