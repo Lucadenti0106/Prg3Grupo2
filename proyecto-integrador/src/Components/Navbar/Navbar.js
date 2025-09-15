@@ -6,7 +6,7 @@ import Searchbar from "../SearchBar/Searchbar";
 
 function Navbar(props) {
     return (
-        <nav>git 
+        <nav> 
             <ul className="main-nav">
                 <li className="nav-item">
                     <Link className="nav-link" to="/">Home</Link>

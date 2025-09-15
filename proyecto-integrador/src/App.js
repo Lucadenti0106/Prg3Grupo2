@@ -1,6 +1,6 @@
-import Home from "./screens/Home/home";
+import Home from "./screens/Home/Home";
 import UnaPelicula from "./Components/UnaPelicula/UnaPelicula";
-import Resultados from "./screens/Resultados/resultados";
+import Resultados from "./screens/Resultados/Resultados";
 
 /*
 import Peliculas from "./screens/Peliculas/Peliculas";
