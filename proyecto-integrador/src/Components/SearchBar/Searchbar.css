@@ -1,44 +1,35 @@
-.search-form{
-  position: absolute;           
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
+.submit{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-
-.form-control{
-  width: 280px;
-  height: 36px;
-  padding: 0 42px 0 14px;       
-  border-radius: 999px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.16);
-  color: #E3E6EB;
+.input{
+    border: 2px solid #282828;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 30vw;
+    background-color: rgb(61, 61, 61);
 }
-.form-control::placeholder{ 
-    color: #A7B0BA; 
+.ver{
+    color: white;
+    background-color: #282828;
+    padding: 10px;
 }
-.form-control:focus{
-  outline: none;
-  border-color: rgba(64,188,244,0.65);
-  box-shadow: 0 0 0 3px rgba(64,188,244,0.25);
+.form-container{
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
-
-
-.btn-primary{
-  position: absolute;
-  top: 50%;
-  right: 6px;
-  transform: translateY(-50%);
-  width: 30px; height: 30px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.12);
-  border: none;
-  color: rgba(255,255,255,0.85);
-  font-size: 0;                 
-  
-}
-.btn-primary::before{
-  content: "🔍";                
-  font-size: 16px;
-  line-height: 30px;
+.logo{
+    width: 40px;
+    margin-left: 20px;
 }

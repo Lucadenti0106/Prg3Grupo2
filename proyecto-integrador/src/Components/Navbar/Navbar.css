@@ -11,12 +11,10 @@ nav{
 }
 
 .main-nav{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  
- 
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 
@@ -31,15 +29,9 @@ nav{
   
 }
 
-
 .nav-link:hover{
   color: #ffff;
 }
-
-
-
-
-
 
 nav::after{
   content:"";

@@ -21,7 +21,10 @@ class Searchbar extends Component {
 
     render() {
         return (
-            <section>
+            <section className="form-container">
+                <div>
+                    <img className="logo" src="/img/logoprog3.png"/>
+                </div>
                     <form className="submit" onSubmit={(evento) => this.controlarEvento(evento)}>
                         <input 
                             className="input" 
