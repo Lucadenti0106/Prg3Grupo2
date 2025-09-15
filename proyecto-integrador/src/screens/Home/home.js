@@ -14,9 +14,6 @@ function Home() {
             <Searchbar />
             <TopRated />
             <EnCartelera />
-
-
-
             <Footer />
         </React.Fragment>
     )

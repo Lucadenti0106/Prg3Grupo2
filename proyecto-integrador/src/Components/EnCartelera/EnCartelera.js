@@ -19,7 +19,7 @@ class EnCartelera extends Component {
             .then(data => {
                     console.log(data);
                     this.setState({
-                        peliculas: data.results.slice(0, 4)
+                        peliculas: data.results.slice(0, 6)
                     });
                 })
             .catch(error => console.log(error));
