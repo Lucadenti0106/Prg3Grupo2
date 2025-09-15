@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './Searchbar.css';
+import { withRouter } from "react-router-dom";
 
 class Searchbar extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class Searchbar extends Component {
 
     controlarEvento(evento){
         evento.preventDefault();
-        this.props.history.push(`/search/` + this.state.search);
+        this.props.history.push(`/resultados/` + this.state.search);
     }
 
     controlarInput(evento){
@@ -35,4 +36,4 @@ class Searchbar extends Component {
     }
 }
 
-export default Searchbar;
+export default withRouter(Searchbar);
