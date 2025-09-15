@@ -2,7 +2,8 @@ import Home from "./screens/Home/Home";
 import UnaPelicula from "./Components/UnaPelicula/UnaPelicula";
 import UnaSerie from "./Components/UnaSerie/UnaSerie";
 import { Route, Switch } from "react-router-dom";
-import Resultados from "./screens/Resultados/resultados.js";
+import Resultados from "./screens/Resultados/Resultados.js";
+import NotFound from "./screens/NotFound/NotFound";
 
 
 /*
@@ -17,10 +18,11 @@ function App() {
       <Route exact path="/detallepelicula/:id" component={UnaPelicula} />
       <Route exact path="/detalleserie/:id" component={UnaSerie} />
       <Route exact path="/resultados/:query" component={Resultados} />
+      <Route path="" component={NotFound} /> 
 {/*   <Route exact path="/favoritas" component={Favoritas} />
       <Route exact path="/peliculas" component={Peliculas} />
       <Route exact path="/series" component={Series} />
-      <Route path="" component={Error} /> */}
+      */}
     </Switch>
   );
 }
