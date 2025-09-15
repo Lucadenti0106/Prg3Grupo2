@@ -13,7 +13,7 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/pelicula/:id" component={UnaPelicula} />
+      <Route exact path="/detalle/:id" component={UnaPelicula} />
 {/*   <Route exact path="/favoritos" component={Favoritos} />
       <Route exact path="/peliculas" component={Peliculas} />
       <Route exact path="/series" component={Series} />
