@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import "./TopRated.css";
 import Cards from "../Cards/Cards.js";
-
+import { Link } from "react-router-dom";
 
 let apikey = "8d0e3b2d44b27bb5f4c13aad68207667";
 
@@ -19,7 +19,7 @@ class PeliculasTopRated extends Component {
                 .then(data => {
                     console.log(data);
                     this.setState({
-                        peliculas: data.results.slice(0, 5)
+                        peliculas: data.results.slice(0, 4)
                     });
                 })
             .catch(error => console.log(error));
@@ -32,6 +32,8 @@ class PeliculasTopRated extends Component {
                 {this.state.peliculas.map((pelicula, i) => (
                     <Cards key={i} peliculas={pelicula} />
                 ))}
+                <Link to="/peliculas">Ver más</Link>
+                
             </section>
         );
     }

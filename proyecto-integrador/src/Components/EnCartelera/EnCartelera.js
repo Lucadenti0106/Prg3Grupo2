@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import Cards from "../Cards/Cards.js";
 
 
@@ -17,20 +17,22 @@ class EnCartelera extends Component {
         fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=" + apikey)
             .then(response => response.json())
             .then(data => {
-                this.setState({
-                    peliculas: data.results
-                });
-            })
+                    console.log(data);
+                    this.setState({
+                        peliculas: data.results.slice(0, 4)
+                    });
+                })
             .catch(error => console.log(error));
     }
 
     render() {
         return (
             <section>
-                                <h2>Now Playing</h2>
+                                <h2>En Cartelera</h2>
                 {this.state.peliculas.map((pelicula, i) => (
                     <Cards key={i} peliculas={pelicula} />
                 ))}
+                <Link to="/peliculas">Ver más</Link>
             </section>
         );
     }

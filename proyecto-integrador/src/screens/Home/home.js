@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../Components/Navbar/Navbar.js";
 import Footer from "../../Components/Footer/Footer.js";
 import TopRated from "../../Components/TopRated/TopRated.js";
-import Searchbar from "../../Components/Searchbar/Searchbar.js";
+import SearchBar from "../../Components/SearchBar/Searchbar.js";
 import EnCartelera from "../../Components/EnCartelera/EnCartelera.js";
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
 
             <h1>Udesa Movies</h1>
             <Navbar />
-            <Searchbar />
+            <SearchBar />
             <TopRated />
             <EnCartelera />
 
