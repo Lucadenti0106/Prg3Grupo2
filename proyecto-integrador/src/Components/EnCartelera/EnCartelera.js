@@ -32,7 +32,7 @@ class EnCartelera extends Component {
                 {this.state.peliculas.map((pelicula, i) => (
                     <Cards key={i} peliculas={pelicula} />
                 ))}
-                <Link to="/peliculas">Ver más</Link>
+                <Link to="/encartelera">Ver más En Cartelera</Link>
             </section>
         );
     }

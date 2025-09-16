@@ -32,7 +32,7 @@ class PeliculasTopRated extends Component {
                 {this.state.peliculas.map((pelicula, i) => (
                     <Cards key={i} peliculas={pelicula} />
                 ))}
-                <Link to="/peliculas">Ver más</Link>
+                <Link to="/toprated">Ver más Top Rated</Link>
                 
             </section>
         );
