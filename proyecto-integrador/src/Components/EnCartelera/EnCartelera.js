@@ -9,7 +9,8 @@ class EnCartelera extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            peliculas: [] 
+            peliculas: [],
+            cargando: true
         };
     }
 
@@ -19,7 +20,8 @@ class EnCartelera extends Component {
             .then(data => {
                     console.log(data);
                     this.setState({
-                        peliculas: data.results.slice(0, 6)
+                        peliculas: data.results.slice(0, 6),
+                        cargando: false
                     });
                 })
             .catch(error => console.log(error));
@@ -27,6 +29,8 @@ class EnCartelera extends Component {
 
     render() {
         return (
+            this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
+
             <section>
                                 <h2>En Cartelera</h2>
                 {this.state.peliculas.map((pelicula, i) => (

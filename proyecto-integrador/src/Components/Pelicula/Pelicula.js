@@ -9,6 +9,7 @@ class PeliculasList extends Component {
     this.state = {
       peliculas: [],
       filtro: "",
+      cargando: true
     };
   }
 
@@ -18,6 +19,7 @@ class PeliculasList extends Component {
       .then(data => {
         this.setState({
           peliculas: data.results,
+          cargando: false
         });
       })
       .catch(error => console.log(error));
@@ -29,6 +31,8 @@ class PeliculasList extends Component {
     );
 
     return (
+      this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
+
       <div>
         <form>
           <input

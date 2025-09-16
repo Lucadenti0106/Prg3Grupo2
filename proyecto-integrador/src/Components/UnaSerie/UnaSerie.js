@@ -7,7 +7,10 @@ class UnaSerie extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            serie: []
+            serie: [],
+            generos: [],
+            cargando: true
+
         };
     }
 
@@ -20,7 +23,10 @@ class UnaSerie extends Component {
             .then(data => {
                 this.setState({
 
-                    serie: data 
+                    serie: data,
+                    generos: data.genres,
+                    cargando: false
+
                 });
                 console.log(data)
             })
@@ -29,6 +35,8 @@ class UnaSerie extends Component {
 
     render() {
         return (
+            this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
+
             <article className="card">
                 <div className = "card-row">
                     
@@ -38,8 +46,8 @@ class UnaSerie extends Component {
                     <div className="estreno">{this.state.serie.release_date}</div>
                     <div className="duracion">{this.state.serie.length}</div>
                     <div className="sinopsis">{this.state.serie.overview}</div>
-{/*                     {this.state.serie.genres.map((genre) => (<div className="genero">{genre.name}</div> ))}
- */}
+                    {this.state.generos.map((genero, i) => (<div key={i} className="genero">Genero: {genero.name}</div> ))}
+
 
 
 

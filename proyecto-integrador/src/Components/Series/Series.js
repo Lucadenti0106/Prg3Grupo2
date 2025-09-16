@@ -9,6 +9,7 @@ class SeriesList extends Component {
     this.state = {
       series: [],
       filtro: "",
+      cargando: true
     };
   }
 
@@ -18,6 +19,7 @@ class SeriesList extends Component {
       .then(data => {
         this.setState({
           series: data.results,
+          cargando: false
         });
       })
       .catch(error => console.log(error));
@@ -29,6 +31,8 @@ class SeriesList extends Component {
     );
 
     return (
+      this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
+
       <div>
         <form>
           <input
