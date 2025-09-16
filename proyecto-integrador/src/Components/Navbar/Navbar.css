@@ -5,16 +5,16 @@ nav{
   align-items: center;          
   color: #E3E6EB;               
   border-bottom: 1px solid rgba(101, 87, 87, 0.08);
-  backdrop-filter: blur(6px);
-  padding: 12px 16px;       
+  padding: 8px;       
   background: #313131;   
 }
 
 .main-nav{
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: row;
+  gap: 15vw;
+  justify-content: center;
 }
 
 
@@ -22,7 +22,7 @@ nav{
   text-decoration: none;
   color:#e3b062;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0.2em;
   font-weight: 700;
   padding: 6px 0;               
   text-shadow: 0 2px 8px #000;
@@ -39,7 +39,3 @@ nav::after{
   height: 3px;
   background: linear-gradient(90deg,#00E054,#FF8000,#40BCF4);
 }
-
-
-
-

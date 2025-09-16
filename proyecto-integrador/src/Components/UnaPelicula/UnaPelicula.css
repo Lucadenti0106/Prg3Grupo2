@@ -1,0 +1,42 @@
+.una-pelicula {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    height: 90vh;
+    width: 90vw;
+    justify-self: center;
+    margin-top: 20px;
+}
+.tarjeta-una-pelicula {
+    height: 89vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+}
+.info-una-pelicula {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #e3b062;
+    padding: 10px;
+    width: 60%;
+    height: 89vh;
+    font-size: large;
+
+}
+.portada-una-pelicula {
+    height: 88vh;
+    margin-left: 5px;
+}
+.nombre-una-pelicula {
+    justify-self: start;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

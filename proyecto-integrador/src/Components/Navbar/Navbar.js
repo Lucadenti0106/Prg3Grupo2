@@ -1,11 +1,14 @@
 import React from "react";
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import Searchbar from "../Searchbar/Searchbar.js";
 
 
 
 function Navbar(props) {
     return (
+        <header>
+        <Searchbar />
         <nav> 
             <ul className="main-nav">
                 <li className="nav-item">
@@ -26,6 +29,7 @@ function Navbar(props) {
             
 
         </nav>
+        </header>
     );
 }
 
