@@ -31,13 +31,15 @@ class PeliculasTopRated extends Component {
         return (
             this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
 
-            <section >
+            <section className="top-rated">
                 <h2>Top rated</h2>
-                {this.state.peliculas.map((pelicula, i) => (
-                    <Cards key={i} peliculas={pelicula} />
-                ))}
-                <Link to="/toprated">Ver más Top Rated</Link>
-                
+                <div className="cards-container">
+                    {this.state.peliculas.map((pelicula, i) => (
+                        <Cards key={i} peliculas={pelicula} />
+                    ))}
+                </div>
+                <Link className="ver-mas" to="/toprated">Ver más Top Rated</Link>
+
             </section>
         );
     }

@@ -42,10 +42,12 @@ class TopRatedFull extends Component {
             onChange={e => this.setState({ filtro: e.target.value })}
           />
         </form>
-        <section>
-          {peliculasFiltradas.map((pelicula, i) => (
-            <Cards key={i} peliculas={pelicula} />
-          ))}
+        <section className="top-rated">
+          <div className="cards-container">
+            {peliculasFiltradas.map((pelicula, i) => (
+              <Cards key={i} peliculas={pelicula} />
+            ))}
+          </div>
         </section>
       </div>
     );
