@@ -5,7 +5,6 @@ import Footer from "../../Components/Footer/Footer.js";
 function Favoritas(){
     return(
         <React.Fragment>
-            <h1>Udesa Movies</h1>
             <Navbar name="Walter White"/>
 
             
