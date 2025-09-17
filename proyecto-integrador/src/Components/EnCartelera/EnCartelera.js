@@ -21,7 +21,7 @@ class EnCartelera extends Component {
             .then(data => {
                     console.log(data);
                     this.setState({
-                        peliculas: data.results.slice(0, 6),
+                        peliculas: data.results.filter((pelicula, index) => index < 6),
                         cargando: false
                     });
                 })
