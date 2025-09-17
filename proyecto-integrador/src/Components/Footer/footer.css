@@ -1,0 +1,29 @@
+.footer {
+    justify-self: center;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 1rem;
+    position: relative;
+    width: 90%;
+    border-radius: 10px 10px 0 0;
+}
+
+.footer a {
+    color: #ffd700;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #e3b062;
+}
+p{
+    color: #8b8b8b;
+}

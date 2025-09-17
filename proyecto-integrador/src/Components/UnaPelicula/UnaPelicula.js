@@ -28,7 +28,7 @@ class UnaPelicula extends Component {
   }
 
   render() {
-    return (this.state.cargando ? <img src="/loader.gif" alt="Cargando..." /> :
+    return (this.state.cargando ? <img src="/loader.gif" style={{display: "block", justifySelf: "center", alignSelf: "center"}} alt="Cargando..." /> :
       <article className="una-pelicula">
         <div className="tarjeta-una-pelicula">
           <img

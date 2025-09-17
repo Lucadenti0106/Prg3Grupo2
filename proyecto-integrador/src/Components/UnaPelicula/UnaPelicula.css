@@ -1,4 +1,5 @@
 .una-pelicula {
+    border: #3d3d3d solid 3px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +10,8 @@
     height: 90vh;
     width: 90vw;
     justify-self: center;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .tarjeta-una-pelicula {
     height: 89vh;

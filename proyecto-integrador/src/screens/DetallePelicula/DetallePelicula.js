@@ -8,9 +8,8 @@ function Detallepelicula(props) {
     console.log(props)
     return (
         <React.Fragment>
-            <h1>Udesa Movies</h1>
-            <Navbar name="Walter White" />
-            <UnaPelicula />
+            <Navbar />
+            <UnaPelicula {...props}/>
             <Footer />
         </React.Fragment>
     );

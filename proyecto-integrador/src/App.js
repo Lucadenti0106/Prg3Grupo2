@@ -1,5 +1,5 @@
 import Home from "./screens/Home/Home";
-import UnaPelicula from "./Components/UnaPelicula/UnaPelicula";
+import DetallePelicula from "./screens/DetallePelicula/DetallePelicula";
 import UnaSerie from "./Components/UnaSerie/UnaSerie";
 import { Route, Switch } from "react-router-dom";
 import Resultados from "./screens/Resultados/Resultados.js";
@@ -15,7 +15,7 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/detallepelicula/:id" component={UnaPelicula} />
+  <Route exact path="/detallepelicula/:id" component={DetallePelicula} />
       <Route exact path="/detalleserie/:id" component={UnaSerie} />
       <Route exact path="/resultados/:query" component={Resultados} /> 
       <Route path="/series" component={Series} />

@@ -10,17 +10,21 @@ class Cards extends Component {
 
 
     render() {
+        const titulo = this.props.peliculas.title.length > 25
+            ? this.props.peliculas.title.slice(0, 25) + "..."
+            : this.props.peliculas.title;
+
         return (
             <Link to={`/detallepelicula/${this.props.peliculas.id}`} style={{ textDecoration: "none"}}>
-                <article className="card">
-                    <div className = "card-row">
-                        <div className="nombre-container">
-                            <h4 className="nombrepeli">{this.props.peliculas.title}</h4>
-                        </div>
-                        <div className="puntaje">{this.props.peliculas.vote_average}</div>
-                        <img className="portada" src={"https://image.tmdb.org/t/p/w342" + this.props.peliculas.poster_path} alt="pelicula"/>
-                    </div>
-                </article>
+            <article className="card">
+                <div className="card-row">
+                <div className="nombre-container">
+                    <h4 className="nombrepeli">{titulo}</h4>
+                </div>
+                <div className="puntaje">{this.props.peliculas.vote_average}</div>
+                <img className="portada" src={"https://image.tmdb.org/t/p/w342" + this.props.peliculas.poster_path} alt="pelicula"/>
+                </div>
+            </article>
             </Link>
         );
     }
