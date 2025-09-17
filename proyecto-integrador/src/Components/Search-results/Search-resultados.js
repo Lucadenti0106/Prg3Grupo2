@@ -28,11 +28,14 @@ class Resultados extends Component {
     render() {
         
         return (
-            <section>
+            this.state.peliculas.length === 0 ? <h2>No se encontraron resultados</h2> :
+            <section className="top-rated">
                 <h2>Resultados</h2>
-                {this.state.peliculas.map((pelicula) => (
-                    <Cards key={pelicula.id} peliculas={pelicula} />
-                ))}
+                <div className="cards-container">
+                    {this.state.peliculas.map((pelicula) => (
+                        <Cards key={pelicula.id} peliculas={pelicula} />
+                    ))}
+                </div>
             </section>
         );
     }

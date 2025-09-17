@@ -8,9 +8,7 @@ import SearchBar from "../../Components/SearchBar/Searchbar.js";
 function Resultados() {
     return (
         <React.Fragment>
-            <h1>Udesa Movies</h1>
             <Navbar />
-            <SearchBar />
             <Results />
             <Footer />
         </React.Fragment>

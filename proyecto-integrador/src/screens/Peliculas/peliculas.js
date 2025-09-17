@@ -9,7 +9,6 @@ function Peliculas() {
 
     return (
         <React.Fragment>
-            <h1>Udesa Movies</h1>
             <Navbar />
             <PeliculasList />
             <Footer />
