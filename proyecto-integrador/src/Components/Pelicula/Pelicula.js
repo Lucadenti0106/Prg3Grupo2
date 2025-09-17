@@ -26,24 +26,15 @@ class PeliculasList extends Component {
   }
 
   render() {
-    const peliculasFiltradas = this.state.peliculas.filter(peli =>
-      peli.title.toLowerCase().includes(this.state.filtro.toLowerCase())
-    );
+    
 
     return (
       this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
 
       <div>
-        <form>
-          <input
-            type="text"
-            placeholder="Filtrar por título"
-            value={this.state.filtro}
-            onChange={e => this.setState({ filtro: e.target.value })}
-          />
-        </form>
-        <section>
-          {peliculasFiltradas.map((pelicula, i) => (
+        <h2>Lista de Películas</h2>
+        <section className="cards-container">
+          {this.state.peliculas.map((pelicula, i) => (
             <Cards key={i} peliculas={pelicula} />
           ))}
         </section>

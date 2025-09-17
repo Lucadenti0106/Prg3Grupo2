@@ -26,25 +26,16 @@ class TopRatedFull extends Component {
   }
 
   render() {
-    const peliculasFiltradas = this.state.peliculas.filter(peli =>
-      peli.title.toLowerCase().includes(this.state.filtro.toLowerCase())
-    );
+    
 
     return (
       this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
 
       <div>
-        <form>
-          <input
-            type="text"
-            placeholder="Filtrar por título"
-            value={this.state.filtro}
-            onChange={e => this.setState({ filtro: e.target.value })}
-          />
-        </form>
+        
         <section className="top-rated">
           <div className="cards-container">
-            {peliculasFiltradas.map((pelicula, i) => (
+            {this.state.peliculas.map((pelicula, i) => (
               <Cards key={i} peliculas={pelicula} />
             ))}
           </div>

@@ -10,9 +10,13 @@ class Cards extends Component {
 
 
     render() {
-        const titulo = this.props.peliculas.title.length > 25
-            ? this.props.peliculas.title.slice(0, 25) + "..."
-            : this.props.peliculas.title;
+        const titulo = this.props.peliculas.title
+    ? (this.props.peliculas.title.length > 25
+        ? this.props.peliculas.title.slice(0, 25) + "..."
+        : this.props.peliculas.title)
+    : (this.props.peliculas.name.length > 25
+        ? this.props.peliculas.name.slice(0, 25) + "..."
+        : this.props.peliculas.name);
 
         return (
             <Link to={`/detallepelicula/${this.props.peliculas.id}`} style={{ textDecoration: "none"}}>

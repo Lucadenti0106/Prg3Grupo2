@@ -1,60 +1,60 @@
 import React, { Component } from "react";
-
+import "./UnaSerie.css"; 
 
 let apikey = "8d0e3b2d44b27bb5f4c13aad68207667";
 
 class UnaSerie extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            serie: [],
-            generos: [],
-            cargando: true
+  constructor(props) {
+    super(props);
+    this.state = {
+      serie: [],
+      generos: [],
+      cargando: true
+    };
+  }
 
-        };
-    }
+  componentDidMount() {
+    const id = this.props.match.params.id;
 
-    componentDidMount() {
-        const id = this.props.match.params.id
-        console.log(id);
-        
-        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=` + apikey)
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
+    fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=` + apikey)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          serie: data,
+          generos: data.genres,
+          cargando: false
+        });
+      });
+  }
 
-                    serie: data,
-                    generos: data.genres,
-                    cargando: false
-
-                });
-                console.log(data)
-            })
-            .catch(error => console.log(error));
-    }
-
-    render() {
-        return (
-            this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
-
-            <article className="card">
-                <div className = "card-row">
-                    
-                    <h4 className="nombrepeli">{this.state.serie.title}</h4>
-                    <div className="puntaje">{this.state.serie.vote_average}</div>
-                    <img className="portada" src={"https://image.tmdb.org/t/p/w342" + this.state.serie.poster_path} alt="serie"/>
-                    <div className="estreno">{this.state.serie.release_date}</div>
-                    <div className="duracion">{this.state.serie.length}</div>
-                    <div className="sinopsis">{this.state.serie.overview}</div>
-                    {this.state.generos.map((genero, i) => (<div key={i} className="genero">Genero: {genero.name}</div> ))}
-
-
-
-
-                </div>
-            </article>
-        );
-    }
+  render() {
+    return (this.state.cargando ? <img src="/loader.gif" style={{display: "block", justifySelf: "center", alignSelf: "center"}} alt="Cargando..." /> :
+      <article className="una-pelicula">
+        <div className="tarjeta-una-pelicula">
+          <img
+            className="portada-una-pelicula"
+            src={"https://image.tmdb.org/t/p/w342" + this.state.serie.poster_path}
+            alt="serie"
+          />
+          <div className="info-una-pelicula">
+            <h2 className="nombre-una-pelicula">{this.state.serie.name}</h2>
+            <div className="rating-una-pelicula">Rating: {this.state.serie.vote_average}</div>
+            <div className="estreno">Estreno: {this.state.serie.first_air_date}</div>
+            <div className="sinopsis">Sinopsis:<br></br> {this.state.serie.overview}</div>
+            <br></br>
+            <div className="generos-una-pelicula">
+              <span>Generos: </span>
+              {this.state.generos.map((genero, i) => (
+                <span key={i} className="genero">
+                  {genero.name}, 
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </article>
+    )
+  }
 }
 
 export default UnaSerie;

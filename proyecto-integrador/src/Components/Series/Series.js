@@ -26,24 +26,14 @@ class SeriesList extends Component {
   }
 
   render() {
-    const seriesFiltradas = this.state.series.filter(serie =>
-      serie.name.toLowerCase().includes(this.state.filtro.toLowerCase())
-    );
-
+    
     return (
       this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
 
       <div>
-        <form>
-          <input
-            type="text"
-            placeholder="Filtrar por título"
-            value={this.state.filtro}
-            onChange={e => this.setState({ filtro: e.target.value })}
-          />
-        </form>
-        <section>
-          {seriesFiltradas.map((serie, i) => (
+        <h2 className="nombrepeli">Lista de Series</h2>
+        <section className="cards-container">
+          {this.state.series.map((serie, i) => (
             <Cards key={i} peliculas={serie} />
           ))}
         </section>

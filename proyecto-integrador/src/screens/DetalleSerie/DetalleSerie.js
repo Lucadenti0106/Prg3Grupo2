@@ -10,7 +10,7 @@ function DetalleSerie(props) {
         <React.Fragment>
             <h1>Udesa Movies</h1>
             <Navbar name="Walter White" />
-            <UnaSerie/>
+            <UnaSerie {...props}/>
             <Footer />
         </React.Fragment>
     );
