@@ -9,35 +9,46 @@ class SeriesList extends Component {
     this.state = {
       series: [],
       filtro: "",
-      cargando: true
+      cargando: true,
+      page: 1
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${apikey}`)
+    this.fetch(this.state.page); 
+  }
+
+  fetch(pagina) {
+    fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${apikey}&page=${pagina}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
-          series: data.results,
+          series: this.state.series.concat(data.results),
+          page: pagina,
           cargando: false
         });
       })
-      .catch(error => console.log(error));
+      .catch(console.log);
+  }
 
+  cargarMas() {
+    let cargar = this.state.page + 1;
+    this.fetch(cargar);
   }
 
   render() {
-    console.log(this.state.series);
-    return (
-      this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
-
+    return this.state.cargando ? (
+      <img src="/loader.gif" alt="Cargando..." />
+    ) : (
       <div>
-        <h2 className="nombrepeli">Lista de Series</h2>
+        <h2>Lista de Películas</h2>
         <section className="cards-container">
           {this.state.series.map((serie, i) => (
-            <Cards key={i} peliculas={serie} />
+            <Cards key={i} series={serie} />
           ))}
         </section>
+
+        <button onClick={this.cargarMas()}>Cargar más</button>
       </div>
     );
   }

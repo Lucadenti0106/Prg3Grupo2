@@ -9,28 +9,37 @@ class PeliculasList extends Component {
     this.state = {
       peliculas: [],
       filtro: "",
-      cargando: true
+      cargando: true,
+      page: 1
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}`)
+    this.fetch(this.state.page); 
+  }
+
+  fetch(pagina) {
+    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}&page=${pagina}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
-          peliculas: data.results,
+          peliculas: this.state.peliculas.concat(data.results),
+          page: pagina,
           cargando: false
         });
       })
-      .catch(error => console.log(error));
+      .catch(console.log);
+  }
+
+  cargarMas() {
+    let cargar = this.state.page + 1;
+    this.fetch(cargar);
   }
 
   render() {
-    
-
-    return (
-      this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
-
+    return this.state.cargando ? (
+      <img src="/loader.gif" alt="Cargando..." />
+    ) : (
       <div>
         <h2>Lista de Películas</h2>
         <section className="cards-container">
@@ -38,6 +47,8 @@ class PeliculasList extends Component {
             <Cards key={i} peliculas={pelicula} />
           ))}
         </section>
+
+        <button onClick={() => this.cargarMas()}>Cargar más</button>
       </div>
     );
   }
