@@ -9,30 +9,38 @@ class TopRatedFull extends Component {
     this.state = {
       peliculas: [],
       filtro: "",
-      cargando: true
+      cargando: true,
+      page: 1
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}`)
+    this.fetch(this.state.page);
+  }
+
+  fetch(pagina) {
+    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}&page=${pagina}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
-          peliculas: data.results,
+          peliculas: this.state.peliculas.concat(data.results),
+          page: pagina,
           cargando: false
         });
       })
       .catch(error => console.log(error));
   }
 
+  cargarMas() {
+    let siguiente = this.state.page + 1;
+    this.fetch(siguiente);
+  }
+
   render() {
-    
-
-    return (
-      this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
-
+    return this.state.cargando ? (
+      <img src="/loader.gif" alt="Cargando..." />
+    ) : (
       <div>
-        
         <section className="top-rated">
           <div className="cards-container">
             {this.state.peliculas.map((pelicula, i) => (
@@ -40,6 +48,10 @@ class TopRatedFull extends Component {
             ))}
           </div>
         </section>
+
+        <button onClick={() => this.cargarMas()}>
+          Cargar más
+        </button>
       </div>
     );
   }

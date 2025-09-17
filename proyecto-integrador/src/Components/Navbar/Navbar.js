@@ -15,7 +15,10 @@ function Navbar(props) {
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/peliculas">Películas</Link>
+                    <Link className="nav-link" to="/toprated">Top Rated</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/encartelera">En cartelera</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/series">Series</Link>
