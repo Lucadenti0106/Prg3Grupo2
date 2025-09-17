@@ -23,10 +23,11 @@ class SeriesList extends Component {
         });
       })
       .catch(error => console.log(error));
+
   }
 
   render() {
-    
+    console.log(this.state.series);
     return (
       this.state.cargando ?  <img src="/loader.gif" alt="Cargando..." />  : 
 

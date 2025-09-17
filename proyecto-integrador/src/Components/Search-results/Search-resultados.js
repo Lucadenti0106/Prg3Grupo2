@@ -14,7 +14,7 @@ class Resultados extends Component {
     }
 
     componentDidMount() {
-        const query = this.props.match.params.query;
+        let query = this.props.match.params.query;
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${query}`)
             .then(response => response.json())
             .then(data => {
@@ -23,6 +23,20 @@ class Resultados extends Component {
                 });
             })
             .catch(error => console.log(error));
+    }
+    componentDidUpdate(prevProps) {
+        let query = this.props.match.params.query;
+        let prevQuery = prevProps.match.params.query;
+        if (query !== prevQuery) {
+            fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    this.setState({
+                        peliculas: data.results
+                    });
+            })
+            .catch(error => console.log(error));
+        }
     }
 
     render() {

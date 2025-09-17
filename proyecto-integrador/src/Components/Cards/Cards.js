@@ -19,6 +19,7 @@ class Cards extends Component {
         : this.props.peliculas.name);
 
         return (
+            this.props.peliculas.first_air_date === undefined ? /* BRILLANTE solucion a el problema de pelis y series detalle */
             <Link to={`/detallepelicula/${this.props.peliculas.id}`} style={{ textDecoration: "none"}}>
             <article className="card">
                 <div className="card-row">
@@ -30,7 +31,20 @@ class Cards extends Component {
                 </div>
             </article>
             </Link>
+            :
+            <Link to={`/detalleserie/${this.props.peliculas.id}`} style={{ textDecoration: "none"}}>
+            <article className="card">
+                <div className="card-row">
+                <div className="nombre-container">
+                    <h4 className="nombrepeli">{titulo}</h4>
+                </div>
+                <div className="puntaje">{this.props.peliculas.vote_average}</div>
+                <img className="portada" src={"https://image.tmdb.org/t/p/w342" + this.props.peliculas.poster_path} alt="pelicula"/>
+                </div>
+            </article>
+            </Link>
         );
+
     }
 }
 
