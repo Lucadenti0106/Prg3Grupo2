@@ -13,7 +13,7 @@ nav{
   list-style: none;
   display: flex;
   flex-direction: row;
-  gap: 15vw;
+  gap: 10vw;
   justify-content: center;
 }
 

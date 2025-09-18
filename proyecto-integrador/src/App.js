@@ -5,9 +5,9 @@ import DetalleSerie from "./screens/DetalleSerie/DetalleSerie";
 import Resultados from "./screens/Resultados/Resultados";
 import NotFound from "./screens/NotFound/NotFound";
 import Series from "./screens/Series/Series";
-import EnCarteleraScreen from "./screens/EnCarteleraFull/EnCarteleraFull";
-import TopRatedScreen from "./screens/TopRatedFull/TopRatedFull";
-// import Favoritas from "./screens/Favoritas/Favoritas";
+import EnCarteleraScreen from "./screens/EnCarteleraFull/EnCarteleraFull.js";
+import TopRatedScreen from "./screens/TopRatedFull/TopRatedFull.js";
+import Favoritas from "./screens/Favoritas/favoritas.js";
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
       <Route path="/series" component={Series} />
       <Route path="/encartelera" component={EnCarteleraScreen} />
       <Route path="/toprated" component={TopRatedScreen} />
+      <Route exact path="/favoritas" component={Favoritas} />
       <Route path="" component={NotFound} /> 
-      {/* <Route exact path="/favoritas" component={Favoritas} /> */}
     </Switch>
   );
 }
