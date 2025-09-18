@@ -41,7 +41,7 @@ class SeriesList extends Component {
       <img src="/loader.gif" alt="Cargando..." />
     ) : (
       <div>
-        <h2>Lista de Películas</h2>
+        <h2>Lista de Series</h2>
         <section className="cards-container">
           {this.state.series.map((serie, i) => (
             <Cards key={i} series={serie} />

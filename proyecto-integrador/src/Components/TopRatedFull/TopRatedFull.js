@@ -47,11 +47,12 @@ class TopRatedFull extends Component {
               <Cards key={i} peliculas={pelicula} />
             ))}
           </div>
-        </section>
-
-        <button onClick={() => this.cargarMas()}>
+          <button className ="ver-mas" onClick={() => this.cargarMas()}>
           Cargar más
         </button>
+        </section>
+
+        
       </div>
     );
   }
