@@ -5,7 +5,7 @@ import Searchbar from "../SearchBar/Searchbar.js";
 
 
 
-function Navbar(props) {
+function Navbar() {
     return (
         <header>
         <Searchbar />

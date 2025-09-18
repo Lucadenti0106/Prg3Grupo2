@@ -20,7 +20,7 @@ class PeliculasTopRated extends Component {
                 .then(data => {
                     console.log(data);
                     this.setState({
-                        peliculas: data.results.slice(0, 6),
+                        peliculas: data.results.slice(0, 5),
                         cargando: false
                     });
                 })
