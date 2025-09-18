@@ -8,6 +8,8 @@ class EnCarteleraFull extends Component {
     super(props);
     this.state = {
       peliculas: [],
+      peliculasFiltradas: [],
+      textoInput: "",
       filtro: "",
       cargando: true,
       page: 1
@@ -36,24 +38,46 @@ class EnCarteleraFull extends Component {
     this.fetch(cargar);
   }
 
+  filtrar = (e) => {
+    const texto = e.target.value;
+    const peliculasFiltradas = this.state.peliculas.filter((peli) => {
+      const titulo = (peli && (peli.title || peli.name || "")).toLowerCase();
+      return titulo.includes(texto.toLowerCase());
+    });
+    this.setState({ peliculasFiltradas, textoInput: texto });
+  };
+
   render() {
-    return this.state.cargando ? (
-      <img src="/loader.gif" alt="Cargando..." />
-    ) : (
+    if (this.state.cargando) {
+      return <img src="/loader.gif" alt="Cargando..." />;
+    }
+
+    const hayFiltro = this.state.textoInput.length !== 0;
+    const lista = hayFiltro ? this.state.peliculasFiltradas : this.state.peliculas;
+
+    return (
       <div>
         <section className="top-rated">
           <h1 className="nombrepeli">Películas en Cartelera</h1>
+
+
+          <input
+            className="filtro-input"
+            placeholder="Filtrar Películas"
+            onChange={this.filtrar}
+            value={this.state.textoInput}
+          />
+
           <div className="cards-container">
-            {this.state.peliculas.map((pelicula, i) => (
+            {lista.map((pelicula, i) => (
               <Cards key={i} peliculas={pelicula} />
             ))}
           </div>
-           <button className="boton-cargar-mas"onClick={() => this.cargarMas()}>
-          Cargar más
-        </button>
-        </section>
 
-       
+          <button className="boton-cargar-mas" onClick={() => this.cargarMas()}>
+            Cargar más
+          </button>
+        </section>
       </div>
     );
   }
