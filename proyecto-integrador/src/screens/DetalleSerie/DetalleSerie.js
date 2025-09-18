@@ -8,7 +8,6 @@ function DetalleSerie(props) {
     console.log(props)
     return (
         <React.Fragment>
-            <h1>Udesa Movies</h1>
             <Navbar name="Walter White" />
             <UnaSerie {...props}/>
             <Footer />

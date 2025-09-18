@@ -40,7 +40,7 @@ class Cards extends Component {
                                 <img className="portada" src={"https://image.tmdb.org/t/p/w342" + data.poster_path} alt="pelicula" />
                             </div>
                             <button className="boton" onClick={(e) => this.toggleDescripcion(e)}>
-                                <img src="/img/FlechaParaAbajo.png" />
+                                <img src="/img/FlechaParaAbajo.png"/>
                             </button>
                         </article>
                     </Link>
