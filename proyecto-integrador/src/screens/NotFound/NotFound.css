@@ -1,0 +1,48 @@
+.error404-container {
+    background: #181818;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    box-shadow: 0 4px 60px rgba(0,0,0,0.8);
+    padding: 40px 24px 32px 24px;
+    margin: 48px auto;
+    max-width: 420px;
+}
+
+.error404-title {
+    color: #e3b062;
+    font-size: 2.5rem;
+    font-weight: 700;   
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.error404-text {
+    color: #ccc;
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.error404-img {
+    width: 400px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+
+.error404-link {
+    color: #e3b062;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #e3b062;
+    transition: color 0.2s, border 0.2s;
+}
+.error404-link:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
