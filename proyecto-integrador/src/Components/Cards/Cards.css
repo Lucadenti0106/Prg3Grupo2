@@ -30,7 +30,9 @@
 }
 
 .card:hover {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.99);
+    border: #545454 solid 3px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.99);
+    background: #333333;
 }
 
 .card-row {
@@ -79,6 +81,25 @@
 .boton-cargar-mas:hover {
     background: #e3b062;
     color: #222;
+}
+
+.boton {
+    background: transparent;
+    border-radius: 4px;
+    border: none
+    
+}
+.boton:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: rgb(68, 68, 68) solid 1px;
+}
+
+.descripcion p {
+    color: rgb(150, 150, 150)
+}
+button img {
+    width: 20px;
+    height: 20px;
 }
 
 
