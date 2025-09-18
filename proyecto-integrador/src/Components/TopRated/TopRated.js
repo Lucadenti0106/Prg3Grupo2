@@ -38,7 +38,7 @@ class PeliculasTopRated extends Component {
                         <Cards key={i} peliculas={pelicula} />
                     ))}
                 </div>
-                <Link className="ver-mas" to="/toprated">Ver más Top Rated</Link>
+                <Link className="boton-cargar-mas" to="/toprated">Ver más Top Rated</Link>
 
             </section>
         );

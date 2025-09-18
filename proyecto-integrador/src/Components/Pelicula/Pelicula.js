@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Cards from "../Cards/Cards.js";
+import "./Pelicula.css";
 
 let apikey = "8d0e3b2d44b27bb5f4c13aad68207667";
 
@@ -42,13 +43,16 @@ class PeliculasList extends Component {
     ) : (
       <div>
         <h2>Lista de Películas</h2>
-        <section className="cards-container">
-          {this.state.peliculas.map((pelicula, i) => (
-            <Cards key={i} peliculas={pelicula} />
-          ))}
+        <section className="top-rated">
+          <div className="cards-container">
+            {this.state.peliculas.map((pelicula, i) => (
+              <Cards key={i} peliculas={pelicula} />
+            ))}
+          </div>
+          <button className="boton-cargar-mas" onClick={() => this.cargarMas()}>Cargar más</button>
+        
         </section>
 
-        <button onClick={() => this.cargarMas()}>Cargar más</button>
       </div>
     );
   }

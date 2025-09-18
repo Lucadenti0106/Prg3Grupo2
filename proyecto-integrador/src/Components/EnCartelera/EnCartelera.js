@@ -39,7 +39,7 @@ class EnCartelera extends Component {
                         <Cards key={i} peliculas={pelicula} />
                     ))}
                 </div>
-                <Link className="ver-mas" to="/encartelera">Ver más En Cartelera</Link>
+                <Link className="boton-cargar-mas" to="/encartelera">Ver más En Cartelera</Link>
             </section>
         );
     }

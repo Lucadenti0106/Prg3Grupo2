@@ -47,7 +47,7 @@ class EnCarteleraFull extends Component {
               <Cards key={i} peliculas={pelicula} />
             ))}
           </div>
-           <button className="ver-mas"onClick={() => this.cargarMas()}>
+           <button className="boton-cargar-mas"onClick={() => this.cargarMas()}>
           Cargar más
         </button>
         </section>
