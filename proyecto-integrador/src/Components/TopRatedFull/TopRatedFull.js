@@ -42,6 +42,7 @@ class TopRatedFull extends Component {
     ) : (
       <div>
         <section className="top-rated">
+          <h1 className="nombrepeli">Películas Top Rated</h1>
           <div className="cards-container">
             {this.state.peliculas.map((pelicula, i) => (
               <Cards key={i} peliculas={pelicula} />

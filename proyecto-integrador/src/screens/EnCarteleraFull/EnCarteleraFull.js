@@ -7,7 +7,6 @@ function EnCarteleraScreen() {
   return (
     <React.Fragment>
       <Navbar />
-      <h1 className="nombrepeli">Películas en Cartelera</h1>
       <EnCarteleraFullComponent />
       <Footer />
     </React.Fragment>

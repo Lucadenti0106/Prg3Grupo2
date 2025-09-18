@@ -7,7 +7,6 @@ function TopRatedScreen() {
   return (
     <React.Fragment>
       <Navbar />
-      <h1 className="nombrepeli">Películas Top Rated</h1>
       <TopRatedFullComponent />
       <Footer />
     </React.Fragment>

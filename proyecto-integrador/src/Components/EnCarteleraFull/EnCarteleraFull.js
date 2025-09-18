@@ -42,6 +42,7 @@ class EnCarteleraFull extends Component {
     ) : (
       <div>
         <section className="top-rated">
+          <h1 className="nombrepeli">Películas en Cartelera</h1>
           <div className="cards-container">
             {this.state.peliculas.map((pelicula, i) => (
               <Cards key={i} peliculas={pelicula} />

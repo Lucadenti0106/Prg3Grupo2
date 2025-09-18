@@ -1,11 +1,11 @@
 import React from "react";
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import Searchbar from "../Searchbar/Searchbar.js";
+import Searchbar from "../SearchBar/Searchbar.js";
 
 
 
-function Navbar() {
+function Navbar(props) {
     return (
         <header>
         <Searchbar />
@@ -15,11 +15,12 @@ function Navbar() {
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/encartelera">En cartelera</Link>
-                </li>
-                <li className="nav-item">
                     <Link className="nav-link" to="/toprated">Top rated</Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/encartelera">En cartelera</Link>
+                </li>
+                
                 <li className="nav-item">
                     <Link className="nav-link" to="/series">Series</Link>
                 </li>
