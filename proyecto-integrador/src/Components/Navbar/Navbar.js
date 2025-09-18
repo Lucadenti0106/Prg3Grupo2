@@ -1,11 +1,11 @@
 import React from "react";
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import Searchbar from "../SearchBar/Searchbar.js";
+import Searchbar from "../Searchbar/Searchbar.js";
 
 
 
-function Navbar(props) {
+function Navbar() {
     return (
         <header>
         <Searchbar />

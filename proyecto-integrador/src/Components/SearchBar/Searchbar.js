@@ -26,14 +26,15 @@ class Searchbar extends Component {
                     <img className="logo" src="/img/logoprog3.png"/>
                     <h1 className="titulo">RodeCo Movies</h1>
                 </div>
-                    <form className="submit" onSubmit={(evento) => this.controlarEvento(evento)}>
+                    <form className="submit" onSubmit={(evento) => this.controlarEvento(evento)} >
                         <input 
                             className="input" 
                             onChange={(evento) => this.controlarInput(evento)} 
                             name="search" 
                             value={this.state.search}  
+                            required
                         />
-                        <button className="ver" type="submit">Search</button>
+                        <button className="ver" type="submit" >Search</button>
                     </form>
             </section>
         );
