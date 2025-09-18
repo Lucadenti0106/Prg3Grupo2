@@ -48,7 +48,7 @@ class SeriesList extends Component {
           ))}
         </section>
 
-        <button onClick={this.cargarMas()}>Cargar más</button>
+        <button className="boton-cargar-mas" onClick={() => this.cargarMas()}>Cargar más</button>
       </div>
     );
   }

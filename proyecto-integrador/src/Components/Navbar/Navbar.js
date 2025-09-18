@@ -15,7 +15,10 @@ function Navbar() {
                     <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/peliculas">Peliculas</Link>
+                    <Link className="nav-link" to="/encartelera">En cartelera</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/toprated">Top rated</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/series">Series</Link>
