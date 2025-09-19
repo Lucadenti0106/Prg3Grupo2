@@ -10,10 +10,18 @@ class Cards extends Component {
             descripcion: false,
             favorito: false
         }
+        this.data = this.props.peliculas || this.props.series;
+        if (this.data && this.data.first_air_date == undefined) {
+            this.esPelicula = true;
+        } else {
+            this.esPelicula = false; 
+        }
     }
 
     componentDidMount() {
-        const id = this.props.peliculas.id; 
+        if (!this.data) return;
+        console.log(this.props);
+        const id = this.esPelicula ? this.data.id : -this.data.id;
         let datosFav = localStorage.getItem('LSFavoritos');
         if (datosFav !== null) {
             let favoritos = JSON.parse(datosFav);
@@ -29,7 +37,8 @@ class Cards extends Component {
     }
     agregarAFavoritos(e) {
         e.preventDefault();
-        const id = this.props.peliculas.id
+        if (!this.data) return;
+        const id = this.esPelicula ? this.data.id : -this.data.id;
         console.log(`Se ha agregado correctamente el personaje con el id ${id}`);
         let favoritos = []
         let datosFav = localStorage.getItem('LSFavoritos')
@@ -45,7 +54,8 @@ class Cards extends Component {
     }
     sacarDeFavoritos(e) {
         e.preventDefault();
-        const id = this.props.peliculas.id
+        if (!this.data) return;
+        const id = this.esPelicula ? this.data.id : -this.data.id;
         console.log(`Se ha eliminado correctamente el personaje con el id ${id}`);
         let favoritos = []
         let datosFav = localStorage.getItem('LSFavoritos')
@@ -60,7 +70,7 @@ class Cards extends Component {
         })
     }
     render() {
-        const data = this.props.peliculas || this.props.series;
+        const data = this.data;
         const titulo = data.title
             ? (data.title.length > 25
                 ? data.title.slice(0, 25) + "..."
@@ -83,14 +93,20 @@ class Cards extends Component {
                                 <div className="puntaje">{data.vote_average}</div>
                                 <img className="portada" src={"https://image.tmdb.org/t/p/w342" + data.poster_path} alt="pelicula" />
                             </div>
-                            {this.state.favorito ?
-                                <button onClick={(e) => this.sacarDeFavoritos(e)}>Quitar a favoritos</button>
-                                :
-                                <button onClick={(e) => this.agregarAFavoritos(e)}>Agregar a favoritos</button>
-                            }
-                            <button className="boton" onClick={(e) => this.toggleDescripcion(e)}>
-                                <img src="/img/FlechaParaAbajo.png"/>
-                            </button>
+                            <div className="card-botones">
+                                {this.state.favorito ?
+                                    <button onClick={(e) => this.sacarDeFavoritos(e)}>
+                                        <img src="/img/Favorito.png" alt="Quitar de Favoritos" className="estrella" />
+                                    </button>
+                                    :
+                                    <button onClick={(e) => this.agregarAFavoritos(e)}>
+                                        <img src="/img/NoFavorito.png" alt="Agregar a Favoritos" className="estrella" />
+                                    </button>
+                                }
+                                <button className="boton" onClick={(e) => this.toggleDescripcion(e)}>
+                                    <img src="/img/FlechaParaAbajo.png" />
+                                </button>
+                            </div>
                         </article>
                     </Link>
                     :
@@ -108,10 +124,20 @@ class Cards extends Component {
                                 </article>
 
                             </div>
-
-                            <button className="Xboton" onClick={(e) => this.toggleDescripcion(e)}>
-                                <img src="/img/FlechaParaArriba.png" />
-                            </button>
+                            <div className="card-botones">
+                                {this.state.favorito ?
+                                    <button onClick={(e) => this.sacarDeFavoritos(e)}>
+                                        <img src="/img/Favorito.png" alt="Quitar de Favoritos" className="estrella" />
+                                    </button>
+                                    :
+                                    <button onClick={(e) => this.agregarAFavoritos(e)}>
+                                        <img src="/img/NoFavorito.png" alt="Agregar a Favoritos" className="estrella" />
+                                    </button>
+                                }
+                                <button className="boton" onClick={(e) => this.toggleDescripcion(e)}>
+                                    <img src="/img/FlechaParaArriba.png" />
+                                </button>
+                            </div>
                         </article>
                     </Link>
 
@@ -128,9 +154,20 @@ class Cards extends Component {
                                 <div className="puntaje">{data.vote_average}</div>
                                 <img className="portada" src={"https://image.tmdb.org/t/p/w342" + data.poster_path} alt="pelicula" />
                             </div>
-                            <button className="boton" onClick={(e) => this.toggleDescripcion(e)}>
-                                <img src="/img/FlechaParaAbajo.png" />
-                            </button>
+                           <div className="card-botones">
+                                {this.state.favorito ?
+                                    <button onClick={(e) => this.sacarDeFavoritos(e)}>
+                                        <img src="/img/Favorito.png" alt="Quitar de Favoritos" className="estrella" />
+                                    </button>
+                                    :
+                                    <button onClick={(e) => this.agregarAFavoritos(e)}>
+                                        <img src="/img/NoFavorito.png" alt="Agregar a Favoritos" className="estrella" />
+                                    </button>
+                                }
+                                <button className="boton" onClick={(e) => this.toggleDescripcion(e)}>
+                                    <img src="/img/FlechaParaAbajo.png" />
+                                </button>
+                            </div>
                         </article>
                     </Link>
 
@@ -147,10 +184,22 @@ class Cards extends Component {
                                 <article className="Xdescripcion">
                                     <p>{data.overview}</p>
                                 </article>
+                                
                             </div>
-                            <button className="Xboton" onClick={(e) => this.toggleDescripcion(e)}>
-                                <img src="/img/FlechaParaArriba.png" />
-                            </button>
+                           <div className="card-botones">
+                                {this.state.favorito ?
+                                    <button onClick={(e) => this.sacarDeFavoritos(e)}>
+                                        <img src="/img/Favorito.png" alt="Quitar de Favoritos" className="estrella" />
+                                    </button>
+                                    :
+                                    <button onClick={(e) => this.agregarAFavoritos(e)}>
+                                        <img src="/img/NoFavorito.png" alt="Agregar a Favoritos" className="estrella" />
+                                    </button>
+                                }
+                                <button className="boton" onClick={(e) => this.toggleDescripcion(e)}>
+                                    <img src="/img/FlechaParaArriba.png" />
+                                </button>
+                            </div>
                         </article>
                     </Link>
         );

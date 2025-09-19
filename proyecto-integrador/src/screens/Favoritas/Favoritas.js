@@ -3,7 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar.js";
 import Footer from "../../Components/Footer/Footer.js";
 import Cards from "../../Components/Cards/Cards.js";
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import './Favoritas.css'
 
 let apikey = "8d0e3b2d44b27bb5f4c13aad68207667"
 
@@ -23,17 +23,31 @@ class Favoritas extends Component {
             let listaIdFavoritosAux = []
 
             listaIdFavoritos.map(id => {
-                fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=` + apikey)
-                    .then(response => response.json())
-                    .then(data => {
-                        listaIdFavoritosAux.push(data)
-                        this.setState({
-                            favoritas: listaIdFavoritosAux
+                if (id < 0) {
+                    fetch(`https://api.themoviedb.org/3/tv/${-id}?api_key=` + apikey)
+                        .then(response => response.json())
+                        .then(data => {
+                            listaIdFavoritosAux.push(data)
+                            this.setState({
+                                favoritas: listaIdFavoritosAux
+                            })
+                            console.log(this.state.favoritas)
                         })
-                        console.log(this.state.favoritas)
-                    })
-                    .catch(error => console.log(error))
+                        .catch(error => console.log(error))
+                } else {
+                    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=` + apikey)
+                        .then(response => response.json())
+                        .then(data => {
+                            listaIdFavoritosAux.push(data)
+                            this.setState({
+                                favoritas: listaIdFavoritosAux
+                            })
+                            console.log(this.state.favoritas)
+                        })
+                        .catch(error => console.log(error))
+                }
             })
+
         }
     }
 
@@ -43,22 +57,38 @@ class Favoritas extends Component {
     }
 
     render() {
+        const peliculas = this.state.favoritas.filter(pelicula => pelicula.first_air_date === undefined);
+        const series = this.state.favoritas.filter(serie => serie.first_air_date !== undefined);
         return (
             <React.Fragment>
                 <Navbar />
-                <section className="top-rated">
+                <section className="favoritas-header">
                     {this.state.favoritas.length > 0 ? (
-                        <button onClick={() => this.limpiarFavoritas()} className="boton-limpiar">
-                            Limpiar favoritas
-                        </button>
+                        <div>
+                            <button onClick={() => this.limpiarFavoritas()} className="botonlimpiar">
+                                Limpiar favoritas
+                            </button>
+                        </div>
+
                     ) : (
-                        <h2>Favoritas</h2>
+                        <h2>No hay Favoritas</h2>
                     )}
-                    <div className="cards-container">
-                        {this.state.favoritas.map(function (pelicula, i) {
-                            return <Cards key={pelicula.id ? pelicula.id : i} peliculas={pelicula} />;
-                        })}
-                    </div>
+                    <section className="top-rated">
+                        <h3>Peliculas Favoritas</h3>
+                        <div className="cards-container">
+                            {peliculas.map((peli, i) => (
+                                <Cards key={peli.id ? peli.id : i} peliculas={peli} />
+                            ))}
+                        </div>
+                    </section>
+                    <section className="top-rated">
+                        <h3>Series Favoritas</h3>
+                        <div className="cards-container">
+                            {series.map((serie, i) => (
+                                <Cards key={serie.id ? serie.id : i} series={serie} />
+                            ))}
+                        </div>
+                    </section>
                 </section>
 
                 <Footer />

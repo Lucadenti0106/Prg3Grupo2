@@ -1,0 +1,30 @@
+.botonlimpiar {
+    background: #000000;
+    color: #e3b062;
+    border: 2px solid #e3b062;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 7px 10px;
+    margin: 15px auto 0 auto;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    text-decoration: none;
+}
+.botonlimpiar:hover {
+    background: #e3b062;
+    color: #222;
+}
+.top-rated h3 {
+  width: 100%;
+  margin-bottom: 15px; 
+  display: block;
+  text-align: center;
+  font-size: 30px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}

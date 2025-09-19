@@ -7,7 +7,7 @@ import NotFound from "./screens/NotFound/NotFound";
 import Series from "./screens/Series/Series";
 import EnCarteleraScreen from "./screens/EnCarteleraFull/EnCarteleraFull.js";
 import TopRatedScreen from "./screens/TopRatedFull/TopRatedFull.js";
-import Favoritas from "./screens/Favoritas/favoritas.js";
+import Favoritas from "./screens/Favoritas/Favoritas.js";
 
 function App() {
   return (

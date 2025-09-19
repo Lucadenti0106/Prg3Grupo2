@@ -83,16 +83,41 @@
     background: #e3b062;
     color: #222;
 }
+.card-botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100px;
+    justify-content: space-between;
+    margin: 0px;
+}
+.card-botones button{
+    background: transparent;
+    border: none;
+
+}
+.estrella {
+    width: 30px;
+    height: 30px;
+}
+.estrella:hover {
+    cursor: pointer;
+}
 
 .boton {
     background: transparent;
-    border-radius: 4px;
-    border: none
+    border-radius: 20px;
+    border: none;
+    width: 35px;
+    height: 35px;
+    padding: 0px;
+    padding-top: 3px;
     
 }
 .boton:hover {
     background-color: rgba(0, 0, 0, 0.2);
     border: rgb(68, 68, 68) solid 1px;
+    cursor: pointer;
 }
 
 .descripcion p {
@@ -102,6 +127,7 @@ button img {
     width: 20px;
     height: 20px;
 }
+
 
 
 button img {
