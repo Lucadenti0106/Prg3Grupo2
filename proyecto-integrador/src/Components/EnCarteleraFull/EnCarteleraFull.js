@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Cards from "../Cards/Cards.js";
+import "./EnCarteleraFull.css";
 
 let apikey = "8d0e3b2d44b27bb5f4c13aad68207667";
 
@@ -59,14 +60,18 @@ class EnCarteleraFull extends Component {
       <div>
         <section className="top-rated">
           <h1 className="nombrepeli">Películas en Cartelera</h1>
-
+          <div className="cabecera">
 
           <input
             className="filtro-input"
             placeholder="Filtrar Películas"
             onChange={this.filtrar}
             value={this.state.textoInput}
-          />
+            />
+            
+
+
+            </div>
 
           <div className="cards-container">
             {lista.map((pelicula, i) => (
@@ -74,10 +79,10 @@ class EnCarteleraFull extends Component {
             ))}
           </div>
 
+        </section>
           <button className="boton-cargar-mas" onClick={() => this.cargarMas()}>
             Cargar más
           </button>
-        </section>
       </div>
     );
   }

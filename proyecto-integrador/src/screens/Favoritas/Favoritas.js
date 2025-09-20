@@ -65,30 +65,32 @@ class Favoritas extends Component {
                 <section className="favoritas-header">
                     {this.state.favoritas.length > 0 ? (
                         <div>
-                            <button onClick={() => this.limpiarFavoritas()} className="botonlimpiar">
-                                Limpiar favoritas
-                            </button>
+                            <div>
+                                <button onClick={() => this.limpiarFavoritas()} className="botonlimpiar">
+                                    Limpiar favoritas
+                                </button>
+                            </div>
+                            <section className="top-rated">
+                                <h3>Peliculas Favoritas</h3>
+                                <div className="cards-container">
+                                    {peliculas.map((peli, i) => (
+                                        <Cards key={peli.id ? peli.id : i} peliculas={peli} />
+                                    ))}
+                                </div>
+                            </section>
+                            <section className="top-rated">
+                                <h3>Series Favoritas</h3>
+                                <div className="cards-container">
+                                    {series.map((serie, i) => (
+                                        <Cards key={serie.id ? serie.id : i} series={serie} />
+                                    ))}
+                                </div>
+                            </section>
                         </div>
 
                     ) : (
                         <h2>No hay Favoritas</h2>
                     )}
-                    <section className="top-rated">
-                        <h3>Peliculas Favoritas</h3>
-                        <div className="cards-container">
-                            {peliculas.map((peli, i) => (
-                                <Cards key={peli.id ? peli.id : i} peliculas={peli} />
-                            ))}
-                        </div>
-                    </section>
-                    <section className="top-rated">
-                        <h3>Series Favoritas</h3>
-                        <div className="cards-container">
-                            {series.map((serie, i) => (
-                                <Cards key={serie.id ? serie.id : i} series={serie} />
-                            ))}
-                        </div>
-                    </section>
                 </section>
 
                 <Footer />

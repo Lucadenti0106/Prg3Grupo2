@@ -2,13 +2,14 @@
 .top-rated {
     background: #181818;
     border-radius: 18px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.8);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.8);
     padding: 10px 32px 30px;
     margin: 48px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -16,11 +17,13 @@
     gap: 32px;
     margin-top: 24px;
 }
+
 form {
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
 }
+
 input[type="text"] {
     padding: 8px;
     border-radius: 5px;
@@ -30,3 +33,24 @@ input[type="text"] {
     background: #313131;
     color: #e3b062;
 }
+
+.filtro-input {
+    height: 20px;
+    margin-left: 10px;
+    border: 2px solid #282828;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(61, 61, 61);
+    color: #dedede;
+}
+
+.cabecera {
+    display: flex;
+    width: 90vw;
+    justify-content: flex-start;
+}
+.filtro-input:focus {
+  outline: none; 
+  border: 2px solid #9a9a9a; 
+    background-color: #222
+}    

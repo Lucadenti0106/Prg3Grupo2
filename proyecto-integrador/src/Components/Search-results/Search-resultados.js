@@ -9,13 +9,14 @@ class Resultados extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            peliculas: [] 
+            peliculas: []
         };
     }
 
     componentDidMount() {
         let query = this.props.match.params.query;
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${query}`)
+        let tipo = this.props.match.params.tipo;
+        fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=${apikey}&query=${query}`)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -27,30 +28,32 @@ class Resultados extends Component {
     componentDidUpdate(prevProps) {
         let query = this.props.match.params.query;
         let prevQuery = prevProps.match.params.query;
+        let tipo = this.props.match.params.tipo;
+
         if (query !== prevQuery) {
-            fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${query}`)
+            fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=${apikey}&query=${query}`)
                 .then(response => response.json())
                 .then(data => {
                     this.setState({
                         peliculas: data.results
                     });
-            })
-            .catch(error => console.log(error));
+                })
+                .catch(error => console.log(error));
         }
     }
 
     render() {
-        
+
         return (
             this.state.peliculas.length === 0 ? <h2>No se encontraron resultados</h2> :
-            <section className="top-rated">
-                <h2>Resultados</h2>
-                <div className="cards-container">
-                    {this.state.peliculas.map((pelicula) => (
-                        <Cards key={pelicula.id} peliculas={pelicula} />
-                    ))}
-                </div>
-            </section>
+                <section className="top-rated">
+                    <h2>Resultados</h2>
+                    <div className="cards-container">
+                        {this.state.peliculas.map((pelicula) => (
+                            <Cards key={pelicula.id} peliculas={pelicula} />
+                        ))}
+                    </div>
+                </section>
         );
     }
 }
