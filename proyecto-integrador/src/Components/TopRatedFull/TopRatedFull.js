@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Cards from "../Cards/Cards.js";
 
+
 let apikey = "8d0e3b2d44b27bb5f4c13aad68207667";
 
 class TopRatedFull extends Component {
@@ -71,18 +72,18 @@ class TopRatedFull extends Component {
     const lista = hayFiltro ? this.state.peliculasFiltradas : this.state.peliculas;
 
     return (
-      <div>
+      <div >
         <section className="top-rated">
           <h1 className="nombrepeli">Películas Top Rated</h1>
 
-
+        
           <input
             className="filtro-input"
             placeholder="Filtrar Películas"
             onChange={this.filtrar}
             value={this.state.textoInput}
           />
-
+          
           <div className="cards-container">
             {lista.map((pelicula, i) => (
               <Cards key={i} peliculas={pelicula} />

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Cards from "../Cards/Cards.js";
+import "./EnCarteleraFull.css";
 
 let apikey = "8d0e3b2d44b27bb5f4c13aad68207667";
 
@@ -20,7 +21,7 @@ class EnCarteleraFull extends Component {
   }
 
   fetch(pagina) {
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apikey}&page=${pagina}`)
+    fetch(https://api.themoviedb.org/3/movie/now_playing?api_key=${apikey}&page=${pagina})
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -84,8 +85,8 @@ class EnCarteleraFull extends Component {
           />
 
           <div className="cards-container">
-            {lista.map((pelicula, i) => (
-              <Cards key={i} peliculas={pelicula} />
+            {lista.map((pelicula) => (
+              <Cards key={pelicula.id} peliculas={pelicula} />
             ))}
           </div>
 
