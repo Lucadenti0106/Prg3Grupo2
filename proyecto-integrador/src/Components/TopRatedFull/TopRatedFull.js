@@ -86,7 +86,7 @@ class TopRatedFull extends Component {
           
           <div className="cards-container">
             {lista.map((pelicula, i) => (
-              <Cards key={i} peliculas={pelicula} />
+              <Cards key={pelicula.id} peliculas={pelicula} />
             ))}
           </div>
 

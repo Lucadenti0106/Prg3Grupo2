@@ -21,7 +21,7 @@ class EnCarteleraFull extends Component {
   }
 
   fetch(pagina) {
-    fetch(https://api.themoviedb.org/3/movie/now_playing?api_key=${apikey}&page=${pagina})
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apikey}&page=${pagina}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
