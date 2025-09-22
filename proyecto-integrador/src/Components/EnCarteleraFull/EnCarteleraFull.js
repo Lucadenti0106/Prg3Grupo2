@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Cards from "../Cards/Cards.js";
-import "./EnCarteleraFull.css";
 
 let apikey = "8d0e3b2d44b27bb5f4c13aad68207667";
 
@@ -11,7 +10,6 @@ class EnCarteleraFull extends Component {
       peliculas: [],
       peliculasFiltradas: [],
       textoInput: "",
-      filtro: "",
       cargando: true,
       page: 1
     };
@@ -42,9 +40,19 @@ class EnCarteleraFull extends Component {
   filtrar = (e) => {
     const texto = e.target.value;
     const peliculasFiltradas = this.state.peliculas.filter((peli) => {
-      const titulo = (peli && (peli.title || peli.name || "")).toLowerCase();
+
+      let titulo = "";
+  
+      if (peli) {
+        if (peli.title) {
+          titulo = peli.title;
+        }
+        titulo = titulo.toLowerCase();
+      }
+  
       return titulo.includes(texto.toLowerCase());
     });
+  
     this.setState({ peliculasFiltradas, textoInput: texto });
   };
 
@@ -53,25 +61,27 @@ class EnCarteleraFull extends Component {
       return <img src="/loader.gif" alt="Cargando..." />;
     }
 
-    const hayFiltro = this.state.textoInput.length !== 0;
+    let hayFiltro = false; 
+
+    if (this.state.textoInput.length > 0) {
+      hayFiltro = true; 
+    } else {
+      hayFiltro = false; 
+    }
     const lista = hayFiltro ? this.state.peliculasFiltradas : this.state.peliculas;
 
     return (
       <div>
         <section className="top-rated">
           <h1 className="nombrepeli">Películas en Cartelera</h1>
-          <div className="cabecera">
+
 
           <input
             className="filtro-input"
             placeholder="Filtrar Películas"
             onChange={this.filtrar}
             value={this.state.textoInput}
-            />
-            
-
-
-            </div>
+          />
 
           <div className="cards-container">
             {lista.map((pelicula, i) => (
@@ -79,10 +89,10 @@ class EnCarteleraFull extends Component {
             ))}
           </div>
 
-        </section>
           <button className="boton-cargar-mas" onClick={() => this.cargarMas()}>
             Cargar más
           </button>
+        </section>
       </div>
     );
   }
