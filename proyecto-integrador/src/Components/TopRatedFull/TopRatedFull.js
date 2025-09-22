@@ -8,7 +8,8 @@ class TopRatedFull extends Component {
     super(props);
     this.state = {
       peliculas: [],
-      filtro: "",
+      peliculasFiltradas: [],
+      textoInput: "",
       cargando: true,
       page: 1
     };
@@ -19,7 +20,7 @@ class TopRatedFull extends Component {
   }
 
   fetch(pagina) {
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}&page=${pagina}`)
+  fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}&page=${pagina}`)
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -32,28 +33,66 @@ class TopRatedFull extends Component {
   }
 
   cargarMas() {
-    let siguiente = this.state.page + 1;
-    this.fetch(siguiente);
+    let cargar = this.state.page + 1;
+    this.fetch(cargar);
   }
 
+  filtrar = (e) => {
+    const texto = e.target.value;
+    const peliculasFiltradas = this.state.peliculas.filter((peli) => {
+
+      let titulo = "";
+  
+      if (peli) {
+        if (peli.title) {
+          titulo = peli.title;
+        }
+        titulo = titulo.toLowerCase();
+      }
+  
+      return titulo.includes(texto.toLowerCase());
+    });
+  
+    this.setState({ peliculasFiltradas, textoInput: texto });
+  };
+
   render() {
-    return this.state.cargando ? (
-      <img src="/loader.gif" alt="Cargando..." />
-    ) : (
+    if (this.state.cargando) {
+      return <img src="/loader.gif" alt="Cargando..." />;
+    }
+
+    let hayFiltro = false; 
+
+    if (this.state.textoInput.length > 0) {
+      hayFiltro = true; 
+    } else {
+      hayFiltro = false; 
+    }
+    const lista = hayFiltro ? this.state.peliculasFiltradas : this.state.peliculas;
+
+    return (
       <div>
         <section className="top-rated">
           <h1 className="nombrepeli">Películas Top Rated</h1>
+
+
+          <input
+            className="filtro-input"
+            placeholder="Filtrar Películas"
+            onChange={this.filtrar}
+            value={this.state.textoInput}
+          />
+
           <div className="cards-container">
-            {this.state.peliculas.map((pelicula, i) => (
+            {lista.map((pelicula, i) => (
               <Cards key={i} peliculas={pelicula} />
             ))}
           </div>
-          <button className ="boton-cargar-mas" onClick={() => this.cargarMas()}>
-          Cargar más
-        </button>
-        </section>
 
-        
+          <button className="boton-cargar-mas" onClick={() => this.cargarMas()}>
+            Cargar más
+          </button>
+        </section>
       </div>
     );
   }
